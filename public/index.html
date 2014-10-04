@@ -5,21 +5,35 @@
 
 	<!-- Using bootstrap -->
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/basic.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/heyguys.css">
 </head>
 <body>
 	<div class="container-fluid">
+		<! -------------------- THIS IS THE MAP ------------------------------------->
 		<div class="col-md-8">
 			<h1>PUT MAP HERE</h1>
 		</div>
+
+		<!------------------------ THIS IS THE SIDEBAR ------------------------------>
 		<div class="sidebar col-md-4">
-			<!-- THIS IS THE SIDEBAR -->
-			<h1>SIDEBAR</h1>
+			<h1>BRANDING</h1>
+			<ul class="nav nav-tabs nav-justified" role="tablist">
+				<li class="active"><a href="#attend" role="tab" data-toggle="tab">Attend</a></li>
+				<li><a href="#host" role="tab" data-toggle="tab">Host</a></li>
+				
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane active" id="attend">Attend an Event</div>
+				<div class="tab-pane" id="host">Host an Event</div>	
+			</div>
 		</div>
 
 	</div>
 
 	<!-- Load js at the end -->
-	<script type="text/javascript" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./assets/js/party.js"></script>
 </body>
 </html>
