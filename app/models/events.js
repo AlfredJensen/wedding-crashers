@@ -9,7 +9,9 @@ var eventsSchema = new Schema({
   location : [{ street : String, 
               zip : Number,
               city : String,
-              state : String  }]
+              state : String,
+              latitude : Number,
+              longitude : Number  }]
 });
 
 module.exports = mongoose.model('Events', eventsSchema);
