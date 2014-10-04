@@ -15,7 +15,12 @@ module.exports = function(app) {
         });
     })
     app.get('/events/search/:lat/:long', function (req, res) {
-        var query = Event.where({ location.latitude : req.params.lat, location.longitude : req.})
+        //select *  from Events where Events.location.latitude <= req.params.lat + .035   and 
+        //                            Events.location.latitude >= req.params.lat - .035   and
+        //                            Events.location.longitude <= req.params.long + .035 and
+        //                            Events.location.longitude >= req.params.long - .035
+        var query = Event.where('location.latitude').lte(req.params.lat + .035).gte(req.params.lat - .035)
+        .lte(req.params.longitude + .035).gte(req.params.longitude - .035);
         query.find(function (err, event) {
             if (err) {
                 //return handleError(err);
