@@ -11,3 +11,5 @@ var eventsSchema = new Schema({
               city : String,
               state : String  }]
 });
+
+module.exports = mongoose.model('Events', eventsSchema);
