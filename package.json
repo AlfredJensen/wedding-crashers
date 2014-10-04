@@ -16,11 +16,12 @@
     "dude"
   ],
   "author": "Phil,Alfred,Brendan,Capone",
-  "dependencies" : {
-      "express" : "4.9.5",
-      "mongoose" : "3.8.17",
-      "request" : "2.44.0"
-    },
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "express": "4.9.5",
+    "mongoose": "3.8.17",
+    "request": "2.44.0"
+  },
   "license": "None",
   "bugs": {
     "url": "https://github.com/alfredababio/wedding-crashers/issues"
