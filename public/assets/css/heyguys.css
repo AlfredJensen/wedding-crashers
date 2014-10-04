@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Inconsolata;
+  src: url("../fonts/Inconsolata.otf") format("opentype");
+}
+/* line 6, ../scss/heyguys.scss */
+body, html {
+  height: 100%;
+  font-family: Inconsolata;
+}
+
+/* line 11, ../scss/heyguys.scss */
+#wrap {
+  min-height: 100%;
+  height: 100% !important;
+}
+/* line 15, ../scss/heyguys.scss */
+#wrap .sidebar {
+  border-left: 1px solid #EFEFEF;
+  min-height: 100%;
+  height: auto;
+}
