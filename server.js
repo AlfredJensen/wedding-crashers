@@ -11,11 +11,13 @@ mongoose.connect(db.url);
 // Initialize the webserver
 var app = express();
 
+// To expose public assets to the world
+app.use(express.static(__dirname + '/public'));
 
-// A Really terrible route
-app.get('/', function(req, res) {
-	res.send('<h1> Test </h1>');
-});
+// API Routes
+require('./app/routes/api-events.js')(app);
+// Generic Routes
+require('./app/routes/generic.js')(app);
 
 // Start listening on 3000
 app.listen(3000);
