@@ -4,7 +4,9 @@
 }
 
 body, html {
-	height: 100%;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
 	font-family: Inconsolata;
 }
 
@@ -14,74 +16,107 @@ body, html {
 }
 
 $event-wrapper-padding: 20px;
-
+$add-event-height: 50px;
+$header-footer-offset: 25px;
 #wrap {
 	min-height: 100%;
 	height: 100% !important;
 	
 	.sidebar {
 		border-left: 1px solid #EFEFEF;
-		min-height: 100%;
-		height: auto;
+		min-height: 100vh;
+		height: 100vh;
 		padding-left: 0px;
 		padding-right: 0px;
 
-		h1 {
+		.brand {
 			padding-left: $event-wrapper-padding;
 			padding-bottom: $event-wrapper-padding;
-			border-bottom: 1px solid #000;
+			background-color: #EFEFEF;
+
+			font-size: 36px;
+
 			margin-bottom: 0px;
+			margin-top: 0px;
+			line-height: $add-event-height + $header-footer-offset;
+			width: inherit;
+
+			/* This is for sticky header */
+			position: fixed;
+			top: 0;
+			height: $add-event-height + $header-footer-offset;
+			/* End Sticky Header */
 		}
 	}
 }
-$add-event-height: 50px;
+
 #event-list {
-	padding-top: 30px;
-	min-height: 100%;
-	margin: 0 0 $add-event-height;
+	padding-top: $add-event-height + $header-footer-offset;
+	height: inherit;
+	margin: 0 auto;
+	padding-bottom: $add-event-height;
+
+	overflow: scroll;
 }
 
-.add-event-button {
-	background-color: #ADD8E6;
-	
+.add-event {
 	/* This is for sticky footer */
-	// position: absolute;
-	// left: 0;
-	// bottom: 0;
-	// height: $add-event-height;
-	// width: 100%;
-
+	position: fixed;
+	bottom: 0;
+	height: $add-event-height;
+	width: inherit;
 	/* End Sticky Footer */
+
+	font-size: 25px;
+	
+	line-height: $add-event-height;
+	padding-left: 30px;
+
+	background-color: #EFEFEF;
+
+	i {
+		line-height: inherit;
+		margin-right: 30px;
+	}
+}
+
+.add-event:hover {
+	background-color: #CDCDCD;
+	cursor: pointer;
 }
 
 .event-wrapper {
-	padding-left: $event-wrapper-padding;
-	padding-right: $event-wrapper-padding;
+	padding: $event-wrapper-padding;
 }
 
 $event-block-margin: 5px;
 .event-content {
-	p {
+	.event-name {
+		font-size: 26px;
 		margin-bottom: 0px;
-		padding-left: $event-wrapper-padding;
 	}
 
-	.description {
-		margin-top: $event-block-margin;
+	.event-time, .event-price, .event-distance {
+		margin-bottom: 0px;
 	}
 
-	.address {
-		margin-top: $event-block-margin;
-		.event-price {
-
-		}
+	.event-distance {
+		color: #9C9C9C;
 	}
-
 }
 
 .event-name {
-	.event-distance {
-		color: #CDCDCD;
+	margin-bottom: 0px;
+
+	p {
+		font-size: 18px;
+	}
+}
+
+.event-logisitics {
+	margin-bottom: 10px;
+	.event-address {
+		overflow: hidden;
 	}
 }
 
