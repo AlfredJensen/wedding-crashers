@@ -6,7 +6,7 @@ var eventsSchema = new Schema({
   description: String,
   date:   Date,
   url : String,
-  host : {type : String, lowercase: true},
+  host : {type : String, lowercase: true}, //this is just email
   price : String,
   capacity : Number,
   location : [{ street : String, 

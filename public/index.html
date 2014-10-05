@@ -57,84 +57,40 @@
 					</div>
 
 					<hr/>
-
-					<div class="event-content">
-						<div class="event-logistics">
-							<p class="event-name">Dummy Event Name</p>
-
-							<div class="event-address">
-								<p>1234 Not A Real Street, Boston, MA, 02115</p>
-							</div>
+				<div class="add-event-form">
+					<form id="add-event-form">
+						<div class="form-field">
+							<input type="text" name="eventName" placeholder="Event Name"><input type="text" name="date" placeholder="YYYY-MM-DD hh:mm"></input>
 						</div>
-						
-						<p class="event-description">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at libero et tortor imperdiet commodo. Aliquam lectus neque, ultricies nec rutrum non, vestibulum sit amet massa. Sed fermentum viverra arcu et condimentum. Donec rhoncus ornare lorem id euismod. Ut tempus augue eget magna rhoncus suscipit. Nunc eget sagittis elit, at consequat elit. Proin scelerisque facilisis ligula eget elementum. Duis vestibulum nibh risus, vitae imperdiet sapien auctor quis.
-						</p>
-
-						<p class="event-time">Today at 9:25PM</p>
-						<p class="event-price">FREE | $100.00</p>
-						<p class="event-distance">0.2 miles away</p>
-					</div>
-
-					<hr/>
-
-					<div class="event-content">
-						<div class="event-logistics">
-							<p class="event-name">Dummy Event Name</p>
-
-							<div class="event-address">
-								<p>1234 Not A Real Street, Boston, MA, 02115</p>
-							</div>
+						<div>
+							<input type="text" name="location" placeholder="Location"></input>
 						</div>
-						
-						<p class="event-description">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at libero et tortor imperdiet commodo. Aliquam lectus neque, ultricies nec rutrum non, vestibulum sit amet massa. Sed fermentum viverra arcu et condimentum. Donec rhoncus ornare lorem id euismod. Ut tempus augue eget magna rhoncus suscipit. Nunc eget sagittis elit, at consequat elit. Proin scelerisque facilisis ligula eget elementum. Duis vestibulum nibh risus, vitae imperdiet sapien auctor quis.
-						</p>
-
-						<p class="event-time">Today at 9:25PM</p>
-						<p class="event-price">FREE | $100.00</p>
-						<p class="event-distance">0.2 miles away</p>
-					</div>
+						<div class="form-field">
+							<input type="text" name="email" placeholder="Host E-mail"></input>
+						</div>
+						<div class="form-field">
+							<input type="text" name="website" placeholder="Website (optional)"></input>
+						</div>
+						<div>
+							<input type="text" name="capacity" placeholder="Capacity"></input><input type="text" name="price" placeholder="Price (0 is free)"></input>
+						</div>
+						<div>
+							<textarea name="description">Description</textarea>
+						</div>
+						<input type="submit" value="Submit">
+					</form>
 				</div>
 			</div>
 			<!-- Make Button stick to bottom -->
 			<div class="add-event">
 				<span>New Event<i class="icon ion-ios7-plus-outline pull-right"></i></span> 
 			</div>
-
-			<div class="add-event-form hidden">
-				<form id="add-event-form">
-					<div class="form-field">
-						<input type="text" placeholder="Event Name"><input type="text" placeholder="YYYY-MM-DD hh:mm"></input>
-					</div>
-					<div>
-						<input type="text" placeholder="Location"></input>
-					</div>
-					<div class="form-field">
-						<input type="text" placeholder="Host E-mail"></input>
-					</div>
-					<div class="form-field">
-						<input type="text" placeholder="Website (optional)"></input>
-					</div>
-					<div>
-						<input type="text" placeholder="Capacity"></input><input type="text" placeholder="Price (0 is free)"></input>
-					</div>
-					<div>
-						<textarea>Description</textarea>
-					</div>
-
-					<input type="submit" value="Submit">
-				</form>
-			</div>
-
 		</div>
-
 	</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./assets/js/events.js"></script>
 	<script type="text/javascript" src="./assets/js/party.js"></script>
 	<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
 	<script type="text/javascript" src="./assets/js/GMaps.js"></script> -->
