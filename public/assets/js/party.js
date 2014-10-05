@@ -14,6 +14,8 @@ $(document).ready(function() {
 	$('.add-event').click(function() {
 		$(this).effect("slide", openOptions, function() {
 			$('.add-event-form').removeClass('hidden');
+			$(this).innerHeight($(this).innerHeight() + $('.add-event-form').innerHeight());			
+			console.log($(this).innerHeight());
 		});
 	});
 
