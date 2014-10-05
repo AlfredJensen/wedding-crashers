@@ -9,7 +9,7 @@ $(function() {
 			var latlng = new google.maps.LatLng(lat, lon);
 
 			map = displayMap(canvas, 15, latlng);
-			addMarker(map, latlng);
+			addMarker(map, latlng, "blue-dot.png");
 
 			getEventsByLatAndLong(lat, lon, function(events) {
 				events.forEach(function(en, index) {
@@ -62,11 +62,19 @@ function displayMap(element, zoom, position) {
 	return new google.maps.Map(element, mapOptions);
 }
 
-function addMarker(map, position) {
-	var marker = new google.maps.Marker({
-		position: position,
-		map: map,
-	});
+function addMarker(map, position, color) {
+	if(color) {
+		var marker = new google.maps.Marker({
+			position: position,
+			map: map,
+			icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+		});	
+	} else {
+		var marker = new google.maps.Marker({
+			position: position,
+			map: map
+		});
+	}
 }
 
 function lookupLocation(location, callback) {

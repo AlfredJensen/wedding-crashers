@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	console.log("JS Ready");
 
 	var openOptions = {
 		"direction" : "up",
@@ -36,6 +35,11 @@ $(document).ready(function() {
 
 	});
 
+	$('.brand').click(function(){
+		$(this).css('background-image', 'url(http://placekitten.com/g/455/75)');
+		$(this).css('color', '#FF69B4');
+	});
+
 	$('#add-event-form').submit(function (e) {
 		e.preventDefault();
 
@@ -64,6 +68,8 @@ $(document).ready(function() {
 				$thing.css('bottom', '0');
 				$thing.css('position', 'fixed');
 				$thing.removeClass('open');
+
+				location.reload();
 			});
 		});
 	});
