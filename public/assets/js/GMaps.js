@@ -17,8 +17,8 @@ $(function() {
 					$('#logistics_' + index).append('<p id=name_' + index + ' class=\"event-name\">' + en.name + '</p>')
 					$('#logistics_' + index).append('<div class="event-address"><p>' + en.location[0].street + ', ' + en.location[0].city + ', ' + en.location[0].state + ', ' + en.location[0].zip + '</p></div>')
 					$('#content_' + index).append('<p class=\"event-description\">' + en.description + '</p>')
-					$('#content_' + index).append('<p class=\"event-time\">' + en.date + '</p>')
-					$('#content_' + index).append('<p class=\"event-price\">' + en.price + '</p>')
+					$('#content_' + index).append('<p class=\"event-time\">' + new Date(en.date).toDateString() + '</p>')
+					$('#content_' + index).append('<p class=\"event-price\">' + pricer(en.price) + '</p>')
 					$('#content_' + index).append('<p class=\"event-distance\">' + distanceFormula(lat, en.location[0].latitude, lon, en.location[0].longitude) + ' miles away</p>')
 
 					addMarker(map, new google.maps.LatLng(en.location[0].latitude, en.location[0].longitude));
@@ -27,6 +27,14 @@ $(function() {
 		});
 	};
 });
+
+function pricer(price) {
+	if(price == 0) {
+		return "Free";
+	} else {
+		return "$" + price;
+	}
+}
 
 Number.prototype.toRad = function() {
    return this * Math.PI / 180;
@@ -42,7 +50,8 @@ function distanceFormula(lat1, lat2, lon1, lon2) {
 	                Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
 	                Math.sin(dLon/2) * Math.sin(dLon/2);  
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-	var d = R * c; 
+	var d = R * c;
+	return Math.round((d * .621371) * 100) / 100;
 }
 
 function displayMap(element, zoom, position) {
