@@ -66,6 +66,8 @@ function lookupLocation(location, callback) {
 			zip: searchAddressJSON(json, "postal_code"),
 			city: searchAddressJSON(json, "locality"),
 			state: searchAddressJSON(json, "administrative_area_level_1"),
+			street: searchAddressJSON(json, "street_number") + " " +
+					searchAddressJSON(json, "route"),
 			latitude: json["results"][0]["geometry"]["location"]["lat"],
 			longitude: json["results"][0]["geometry"]["location"]["lng"]
 		}

@@ -15,7 +15,14 @@ $(document).ready(function() {
 		var defaultHeight = 50; // This is $add-event-height in scss
 
 		if($(this).hasClass('open')) {
-			
+			var sidebarHeight = $(this).parent().innerHeight();
+			$('.add-event-form').addClass('hidden');
+			var formHeight = $('.add-event-form').innerHeight();
+			$('#event-list').innerHeight(sidebarHeight + (formHeight - $(this).innerHeight()));
+			$(this).css('width', '100%');
+			$(this).css('bottom', '0');
+			$(this).css('position', 'fixed');
+			$(this).removeClass('open');
 		} else {
 			var sidebarHeight = $(this).parent().innerHeight();
 			$('.add-event-form').removeClass('hidden');
@@ -46,9 +53,31 @@ $(document).ready(function() {
 			}
 
 			$.post("/events/create", json, function(data) {
-				// Do things that need to be done after submission here
-				console.log("this somehow works");
+				clearForm();
+				$thing = $('.add-event');
+
+				var sidebarHeight = $thing.parent().innerHeight();
+				var formHeight = $('.add-event-form').innerHeight();
+				$('#event-list').innerHeight(sidebarHeight + (formHeight - $thing.innerHeight()));
+				$('.add-event-form').addClass('hidden');
+				$thing.css('width', '100%');
+				$thing.css('bottom', '0');
+				$thing.css('position', 'fixed');
+				$thing.removeClass('open');
 			});
 		});
 	});
 });
+
+function clearForm() {
+	$form = $('#add-event-form');
+
+	$('input[name=eventName]').val("");
+	$('input[name=date]').val("");
+	$('input[name=location]').val("");
+	$('input[name=email]').val("");
+	$('input[name=website]').val("");
+	$('input[name=capacity]').val("");
+	$('input[name=price]').val("");
+	$('textarea[name=description]').val("");
+}
