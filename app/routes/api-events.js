@@ -41,7 +41,7 @@ module.exports = function(app) {
         //                            Events.location.latitude >= req.params.lat - .035   and
         //                            Events.location.longitude <= req.params.long + .035 and
         //                            Events.location.longitude >= req.params.long - .035
-        var query = Event.where('location.latitude').lte(req.params.lat + .035).gte(req.params.lat - .035).where('location.longitude').lte(req.params.longitude + .035).gte(req.params.longitude - .035);
+        var query = Event.where('location.latitude').gte(parseFloat(req.params.lat) - .035).lte(parseFloat(req.params.lat) + .035).where('location.longitude').lte(parseFloat(req.params.longitude) + .035).gte(parseFloat(req.params.longitude) - .035);
         query.find(function (err, event) {
             if (err) {
                 //return handleError(err);

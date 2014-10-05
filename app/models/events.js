@@ -10,7 +10,7 @@ var eventsSchema = new Schema({
   price : String,
   capacity : Number,
   location : [{ street : String, 
-              zip : Number,
+              zip : String,
               city : String,
               state : String,
               latitude : Number,
