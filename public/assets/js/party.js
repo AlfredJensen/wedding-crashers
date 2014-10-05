@@ -1,14 +1,20 @@
 $(document).ready(function() {
 	console.log("JS Ready");
 
-	$('#host a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	});
+	var openOptions = {
+		"direction" : "up",
+		"mode" : "show"
+	};
 
-	$('#attend a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
+	var closeOptions = {
+		"direction" : "down",
+		"mode" : "hide"
+	};
+
+	$('.add-event').click(function() {
+		$(this).effect("slide", openOptions, function() {
+			$('.add-event-form').removeClass('hidden');
+		});
 	});
 
 	$('#add-event-form').submit(function (e) {
