@@ -13,28 +13,13 @@ $(function() {
 
 			getEventsByLatAndLong(lat, lon, function(events) {
 				events.forEach(function(en, index) {
-					var R = 3963;
-					var lat2 = en.location[0].latitude; 
-					var lon2 = en.location[0].longitude; 
-					var φ1 = lat.toRadians();
-					var φ2 = lat2.toRadians();
-					var Δφ = (lat2-lat).toRadians();
-					var Δλ = (lon2-lon).toRadians();
-
-					var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-					        Math.cos(φ1) * Math.cos(φ2) *
-					        Math.sin(Δλ/2) * Math.sin(Δλ/2);
-					var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-					var d = R * c;
-
 					$('.event-wrapper').append('<div id=content_' + index + ' class=event-content><div id=logistics_' + index + ' class=event-logistics></div></div>')
 					$('#logistics_' + index).append('<p id=name_' + index + ' class=\"event-name\">' + en.name + '</p>')
 					$('#logistics_' + index).append('<div class="event-address"><p>' + en.location[0].street + ', ' + en.location[0].city + ', ' + en.location[0].state + ', ' + en.location[0].zip + '</p></div>')
 					$('#content_' + index).append('<p class=\"event-description\">' + en.description + '</p>')
 					$('#content_' + index).append('<p class=\"event-time\">' + en.date + '</p>')
 					$('#content_' + index).append('<p class=\"event-price\">' + en.price + '</p>')
-					$('#content_' + index).append('<p class=\"event-distance\">' + d + '</p>')
+					$('#content_' + index).append('<p class=\"event-distance\">' + distanceFormula(lat, en.location[0].latitude, lon, en.location[0].longitude) + ' miles away</p>')
 
 					addMarker(map, new google.maps.LatLng(en.location[0].latitude, en.location[0].longitude));
 				});
@@ -42,6 +27,21 @@ $(function() {
 		});
 	};
 });
+
+function distanceFormula(lat1, lat2, lon1, lon2){
+	var R = 3963;
+	var φ1 = lat1.toRadians();
+	var φ2 = lat2.toRadians();
+	var Δφ = (lat2-lat1).toRadians();
+	var Δλ = (lon2-lon1).toRadians();
+
+	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+	        Math.cos(φ1) * Math.cos(φ2) *
+	        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+	var d = R * c;
+	return d;
+}
 
 function displayMap(element, zoom, position) {
 	var mapOptions = {
