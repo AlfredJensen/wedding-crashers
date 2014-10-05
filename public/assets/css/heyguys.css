@@ -19,3 +19,8 @@ body, html {
   min-height: 100%;
   height: auto;
 }
+
+/* line 22, ../scss/heyguys.scss */
+#map-canvas {
+  height: 100%;
+}
