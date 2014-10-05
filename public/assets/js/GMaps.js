@@ -1,16 +1,30 @@
 $(function() {
 
-if (navigator.geolocation) {
+	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			geocoder = new google.maps.Geocoder();
 			canvas = document.getElementById('map-canvas')
-			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			var latlng = new google.maps.LatLng(lat, lon);
 
-			map = displayMap(canvas, 15, latlng);
-			marker = addMarker(map, latlng);
-		})
-	}
-})
+			//map = displayMap(canvas, 15, latlng);
+			//marker = addMarker(map, latlng);
+			getEventsByLatAndLong(lat, lon, function(events) {
+				events.forEach(function(en, index) {
+					console.log(en.location);
+					$('.event-wrapper').append('<div id=content_' + index + ' class=event-content><div id=logistics_' + index + ' class=event-logistics></div></div>')
+					$('#logistics_' + index).append('<p id=name_' + index + ' class=\"event-name\">' + en.name + '</p>')
+					$('#logistics_' + index).append('<div class="event-address"><p>' + en.location[0].street + ', ' + en.location[0].city + ', ' + en.location[0].state + ', ' + en.location[0].zip + '</p></div>')
+					$('#content_' + index).append('<p class=\"event-description\">' + en.description + '</p>')
+					$('#content_' + index).append('<p class=\"event-time\">' + en.date + '</p>')
+					$('#content_' + index).append('<p class=\"event-price\">' + en.price + '</p>')
+					$('#content_' + index).append('<p class=\"event-distance\">placeholder</p>')
+				});
+			});
+		});
+	};
+});
 
 function displayMap(element, zoom, position) {
 	var mapOptions = {
