@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <head>
 	<title>Put a Title Liam</title>
 
@@ -15,24 +14,51 @@
 
 		<!------------------------ THIS IS THE SIDEBAR ------------------------------>
 		<div class="sidebar col-md-4">
-			<h1>BRANDING</h1>
-			<ul class="nav nav-tabs nav-justified" role="tablist">
-				<li class="active"><a href="#attend" role="tab" data-toggle="tab">Attend</a></li>
-				<li><a href="#host" role="tab" data-toggle="tab">Host</a></li>
-			</ul>
+			<h1>Eventlr</h1>
+			<div id="event-list">
+				<div class="event-wrapper">
+					<div class="event-content">
+						<div class="event-name">
+							<span>1. </span>
+							<span>Dummy Event Name</span>
+							<p class="event-time">Today at 9:25PM</p>
+							<p class="event-distance">0.2 miles away</p>
+						</div>
+						
+						<p class="description">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at libero et tortor imperdiet commodo. Aliquam lectus neque, ultricies nec rutrum non, vestibulum sit amet massa. Sed fermentum viverra arcu et condimentum. Donec rhoncus ornare lorem id euismod. Ut tempus augue eget magna rhoncus suscipit. Nunc eget sagittis elit, at consequat elit. Proin scelerisque facilisis ligula eget elementum. Duis vestibulum nibh risus, vitae imperdiet sapien auctor quis.
+						</p>
 
-			<div class="tab-content">
-				<div class="tab-pane active" id="attend">Attend an Event</div>
-				<div class="tab-pane" id="host">
-					<div id="host-form">
-						<input type="text" placeholder="Name your Event"></input>
+						<div class="address">
+							<p>1234 Not A Real Street</p>
+							<p>Boston, MA, 02115</p>
+							<p class="event-price">FREE | $100.00</p>
+						</div>
+						
 					</div>
-					<!-- 
-						Name of Event, Description, Date/Time, URL, Host Email,
-						Price, Location (Address)
-					-->
-				</div>	
+				</div>
+
+				<div class="add-event-button">
+					Add Event <span class="glyphicon glyphicon-plus pull-right"></span>
+				</div>
+
+				<div class="add-event-form">
+					<form action="submitEvent">
+						<div class="form-field">
+							<input type="text" placeholder="Event Name">
+						</div>
+						<div class="form-field">
+							<input type="text" placeholder="Website (optional)">
+						</div>
+						<div class="form-field">
+							<input type="text" placeholder="Host E-mail">
+						</div>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
 			</div>
+			<!-- Make Button stick to bottom -->
+
 		</div>
 
 	</div>

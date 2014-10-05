@@ -8,16 +8,64 @@ body, html {
   font-family: Inconsolata;
 }
 
-/* line 11, ../scss/heyguys.scss */
+/* line 13, ../scss/heyguys.scss */
 #wrap {
   min-height: 100%;
   height: 100% !important;
 }
-/* line 15, ../scss/heyguys.scss */
+/* line 17, ../scss/heyguys.scss */
 #wrap .sidebar {
   border-left: 1px solid #EFEFEF;
   min-height: 100%;
   height: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 24, ../scss/heyguys.scss */
+#wrap .sidebar h1 {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 0px;
+}
+
+/* line 33, ../scss/heyguys.scss */
+#event-list {
+  padding-top: 30px;
+  min-height: 100%;
+  margin: 0 0 50px;
+}
+
+/* line 39, ../scss/heyguys.scss */
+.add-event-button {
+  background-color: #ADD8E6;
+  /* This is for sticky footer */
+  /* End Sticky Footer */
+}
+
+/* line 52, ../scss/heyguys.scss */
+.event-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* line 59, ../scss/heyguys.scss */
+.event-content p {
+  margin-bottom: 0px;
+  padding-left: 20px;
+}
+/* line 64, ../scss/heyguys.scss */
+.event-content .description {
+  margin-top: 5px;
+}
+/* line 68, ../scss/heyguys.scss */
+.event-content .address {
+  margin-top: 5px;
+}
+
+/* line 78, ../scss/heyguys.scss */
+.event-name .event-distance {
+  color: #CDCDCD;
 }
 
 /* line 22, ../scss/heyguys.scss */
