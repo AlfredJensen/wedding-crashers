@@ -8,6 +8,11 @@ body, html {
 	font-family: Inconsolata;
 }
 
+.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
 $event-wrapper-padding: 20px;
 
 #wrap {
