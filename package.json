@@ -17,6 +17,7 @@
   ],
   "author": "Phil,Alfred,Brendan,Capone",
   "dependencies": {
+    "body-parser": "^1.9.0",
     "express": "4.9.5",
     "mongoose": "3.8.17",
     "request": "2.44.0"
