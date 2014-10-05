@@ -24,7 +24,7 @@ $header-footer-offset: 25px;
 	
 	.sidebar {
 		border-left: 1px solid #EFEFEF;
-		min-height: 100vh;
+		// min-height: 100vh;
 		height: 100vh;
 		padding-left: 0px;
 		padding-right: 0px;
@@ -134,7 +134,7 @@ $event-block-margin: 5px;
 }
 
 .form-field {
-	margin: 5px 0px;
+	margin: 0px 0px;
 	.short-input {
 		border-right: 1px solid #E9E9E9;
 		border-bottom: 1px solid #E9E9E9;
@@ -145,17 +145,12 @@ $event-block-margin: 5px;
 		border-top: none;
 		border-left: none;
 		border-right: none;
-		padding: 3px;
 	}
 
 	textarea {
 		height: 100px;
 	}
 	
-}
-
-.last-form-field {
-	height: 0px;
 }
 
 .submitButton {

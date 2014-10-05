@@ -13,24 +13,20 @@ $(document).ready(function() {
 
 	$('.add-event').click(function() {
 		var defaultHeight = 50; // This is $add-event-height in scss
-		if($(this).hasClass('open')) {
-			$('.add-event-form').addClass('hidden');
-			$(this).innerHeight(defaultHeight);
-			$(this).removeClass('open');
-		} 
-		else {
-			$(this).effect("slide", openOptions, function() {
-				$(this).css('padding-left', '0px');
-				$span = $(this).find('span');
-				$span.css('padding-left', '30px');
-				$span.find('i').remove();
-				$('.add-event-form').removeClass('hidden');
-				$(this).addClass('open');
-				$(this).innerHeight($(this).innerHeight() + $('.add-event-form').innerHeight());
 
-				console.log($(this).innerHeight());
-			});
+		if($(this).hasClass('open')) {
+			
+		} else {
+			var sidebarHeight = $(this).parent().innerHeight();
+			$('.add-event-form').removeClass('hidden');
+			var formHeight = $('.add-event-form').innerHeight();
+			$('#event-list').innerHeight(sidebarHeight - (formHeight + $(this).innerHeight()));
+			$(this).css('width', '100%');
+			$(this).css('bottom', '');
+			$(this).css('position', 'relative');
+			$(this).addClass('open');
 		}
+
 	});
 
 	$('#add-event-form').submit(function (e) {
