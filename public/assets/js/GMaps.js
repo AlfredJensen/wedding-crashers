@@ -1,6 +1,6 @@
 $(function() {
 
-	if (navigator.geolocation) {
+if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			geocoder = new google.maps.Geocoder();
 			canvas = document.getElementById('map-canvas')

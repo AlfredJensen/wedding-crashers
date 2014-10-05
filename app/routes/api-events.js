@@ -16,7 +16,7 @@ module.exports = function(app) {
         query.findOne(function (err, event) { 
             if (err) {
                 //return handleError(err);
-                res.send("Everything broke, just ignore any success you might think you had");
+                res.send(err);
             }
             if (event) {
                 // doc may be null if no document matched
@@ -28,7 +28,7 @@ module.exports = function(app) {
         Event.find(function (err, event) {
             if (err) {
                 //return handleError(err);
-                res.send("Everything broke, just ignore any success you might think you had");
+                res.send(err);
             }
             if (event) {
                 // doc may be null if no document matched
@@ -54,8 +54,6 @@ module.exports = function(app) {
         });
     })
     app.post('/events/create', function(req, res) {
-        var locationJSON = req.body.location,
-                obj = JSON.parse(locationJSON);
         var eventInfo = new Event({ 
             name : req.body.name,
             description : req.body.description,
@@ -64,18 +62,21 @@ module.exports = function(app) {
             url : req.body.url,
             host : req.body.host,
             capacity : req.body.capacity,
-            location : [{ street : obj.street, 
-                    zip : obj.zip,
-                    city : obj.city,
-                    state : obj.state,
-                    latitude : obj.latitude,
-                    longitude : obj.longitude }]
+            location : [{ street : req.body.location.street, 
+                    zip : req.body.location.zip,
+                    city : req.body.location.city,
+                    state : req.body.location.state,
+                    latitude : req.body.location.latitude,
+                    longitude : req.body.location.longitude }]
         });
         eventInfo.save(function(err) {
             if (err){
                 //handle error
+                res.send(err);
             }
-            res.json({ message:'success', data:eventInfo, console: req.body});
+            else {
+                res.json({ message:'Success', data:eventInfo, console: req.body});
+            }
         });
     });
 }
