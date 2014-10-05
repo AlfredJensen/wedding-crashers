@@ -43,16 +43,26 @@
 				</div>
 
 				<div class="add-event-form">
-					<form action="submitEvent">
+					<form action="submitEvent()">
 						<div class="form-field">
-							<input type="text" placeholder="Event Name">
+							<input type="text" placeholder="Event Name"><input type="text" placeholder="YYYY-MM-DD hh:mm"></input>
+						</div>
+						<div>
+							<input type="text" placeholder="Location"></input>
 						</div>
 						<div class="form-field">
-							<input type="text" placeholder="Website (optional)">
+							<input type="text" placeholder="Host E-mail"></input>
 						</div>
 						<div class="form-field">
-							<input type="text" placeholder="Host E-mail">
+							<input type="text" placeholder="Website (optional)"></input>
 						</div>
+						<div>
+							<input type="text" placeholder="Capacity"></input><input type="text" placeholder="Price (0 is free)"></input>
+						</div>
+						<div>
+							<textarea>Description</textarea>
+						</div>
+
 						<input type="submit" value="Submit">
 					</form>
 				</div>
