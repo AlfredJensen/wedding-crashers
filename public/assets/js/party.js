@@ -12,11 +12,25 @@ $(document).ready(function() {
 	};
 
 	$('.add-event').click(function() {
-		$(this).effect("slide", openOptions, function() {
-			$('.add-event-form').removeClass('hidden');
-			$(this).innerHeight($(this).innerHeight() + $('.add-event-form').innerHeight());			
-			console.log($(this).innerHeight());
-		});
+		var defaultHeight = 50; // This is $add-event-height in scss
+		if($(this).hasClass('open')) {
+			$('.add-event-form').addClass('hidden');
+			$(this).innerHeight(defaultHeight);
+			$(this).removeClass('open');
+		} 
+		else {
+			$(this).effect("slide", openOptions, function() {
+				$(this).css('padding-left', '0px');
+				$span = $(this).find('span');
+				$span.css('padding-left', '30px');
+				$span.find('i').remove();
+				$('.add-event-form').removeClass('hidden');
+				$(this).addClass('open');
+				$(this).innerHeight($(this).innerHeight() + $('.add-event-form').innerHeight());
+
+				console.log($(this).innerHeight());
+			});
+		}
 	});
 
 	$('#add-event-form').submit(function (e) {

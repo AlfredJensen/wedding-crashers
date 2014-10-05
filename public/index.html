@@ -104,24 +104,26 @@
 				<div class="add-event-form hidden">
 					<form id="add-event-form">
 						<div class="form-field">
-							<input type="text" name="eventName" placeholder="Event Name"></input><input type="text" name="date" placeholder="YYYY-MM-DD hh:mm"></input>
-						</div>
-						<div>
-							<input type="text" name="location" placeholder="Location"></input>
+							<input class="col-md-6 short-input" type="text" name="eventName" placeholder="Event Name"></input>
+							<input class="col-md-6" type="text" name="date" placeholder="YYYY-MM-DD hh:mm"></input>
 						</div>
 						<div class="form-field">
-							<input type="text" name="email" placeholder="Host E-mail"></input>
+							<input class="col-md-12" type="text" name="location" placeholder="Location"></input>
 						</div>
 						<div class="form-field">
-							<input type="text" name="website" placeholder="Website (optional)"></input>
+							<input class="col-md-12" type="text" name="email" placeholder="Host E-mail"></input>
 						</div>
-						<div>
-							<input type="text" name="capacity" placeholder="Capacity"></input><input type="text" name="price" placeholder="Price (0 is free)"></input>
+						<div class="form-field">
+							<input class="col-md-12" type="text" name="website" placeholder="Website (optional)"></input>
 						</div>
-						<div>
-							<textarea name="description">Description</textarea>
+						<div class="form-field">
+							<input class="col-md-6 short-input" type="text" name="capacity" placeholder="Capacity"></input>
+							<input class="col-md-6" type="text" name="price" placeholder="Price (0 is free)"></input>
 						</div>
-						<input type="submit" value="Submit"></input>
+						<div class="form-field">
+							<textarea class="col-md-12" name="description">Description</textarea>
+						</div>
+						<input class="submitButton" type="submit" value="Confirm"><span class="ionicons ion-ios7-checkmark-outline"></span>						
 					</form>
 				</div>
 			</div>
