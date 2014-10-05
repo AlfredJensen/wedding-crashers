@@ -35,16 +35,17 @@ body, html {
   background-color: #EFEFEF;
   margin-bottom: 0px;
   margin-top: 0px;
+  z-index: 1;
 }
 
-/* line 40, ../scss/heyguys.scss */
+/* line 42, ../scss/heyguys.scss */
 #event-list {
   padding-top: 30px;
   min-height: 100%;
   margin: 0 0 50px;
 }
 
-/* line 46, ../scss/heyguys.scss */
+/* line 48, ../scss/heyguys.scss */
 .add-event {
   /* This is for sticky footer */
   position: absolute;
@@ -57,45 +58,55 @@ body, html {
   line-height: 50px;
   padding-left: 30px;
   background-color: #EFEFEF;
+  z-index: 1;
 }
-/* line 61, ../scss/heyguys.scss */
+/* line 64, ../scss/heyguys.scss */
 .add-event i {
   line-height: inherit;
   margin-right: 30px;
 }
 
-/* line 67, ../scss/heyguys.scss */
+/* line 70, ../scss/heyguys.scss */
 .add-event:hover {
   background-color: #CDCDCD;
   cursor: pointer;
 }
 
-/* line 72, ../scss/heyguys.scss */
+/* line 75, ../scss/heyguys.scss */
 .event-wrapper {
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* line 79, ../scss/heyguys.scss */
-.event-content p {
+/* line 82, ../scss/heyguys.scss */
+.event-content .event-name {
+  font-size: 26px;
   margin-bottom: 0px;
-  padding-left: 20px;
 }
-/* line 84, ../scss/heyguys.scss */
-.event-content .description {
-  margin-top: 5px;
-}
-/* line 88, ../scss/heyguys.scss */
-.event-content .address {
-  margin-top: 5px;
+/* line 87, ../scss/heyguys.scss */
+.event-content .event-time, .event-content .event-price, .event-content .event-distance {
+  margin-bottom: 0px;
 }
 
-/* line 98, ../scss/heyguys.scss */
-.event-name .event-distance {
-  color: #CDCDCD;
+/* line 92, ../scss/heyguys.scss */
+.event-name {
+  margin-bottom: 0px;
+}
+/* line 95, ../scss/heyguys.scss */
+.event-name p {
+  font-size: 18px;
 }
 
-/* line 103, ../scss/heyguys.scss */
+/* line 100, ../scss/heyguys.scss */
+.event-logisitics {
+  margin-bottom: 10px;
+}
+/* line 102, ../scss/heyguys.scss */
+.event-logisitics .event-address {
+  overflow: hidden;
+}
+
+/* line 107, ../scss/heyguys.scss */
 #map-canvas {
   height: 100%;
 }
