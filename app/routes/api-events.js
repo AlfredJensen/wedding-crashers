@@ -9,7 +9,6 @@ module.exports = function(app) {
     }));
     app.use(bodyParser.json());
 
-
     app.get('/events/search/:id', function (req, res) {
         //Select top 1 from Event where Event.id = req.param.id
         var query = Event.where({ _id : req.params.id });
@@ -54,8 +53,8 @@ module.exports = function(app) {
         });
     })
     app.post('/events/create', function(req, res) {
-        var locationJSON = req.body.location,
-                obj = JSON.parse(locationJSON);
+        // var locationJSON = req.body.location,
+        //         obj = JSON.parse(locationJSON);
         var eventInfo = new Event({ 
             name : req.body.name,
             description : req.body.description,
@@ -64,12 +63,12 @@ module.exports = function(app) {
             url : req.body.url,
             host : req.body.host,
             capacity : req.body.capacity,
-            location : [{ street : obj.street, 
-                    zip : obj.zip,
-                    city : obj.city,
-                    state : obj.state,
-                    latitude : obj.latitude,
-                    longitude : obj.longitude }]
+            location : [{ street : req.body.location.street, 
+                    zip : req.body.location.zip,
+                    city : req.body.location.city,
+                    state : req.body.location.state,
+                    latitude : req.body.location.latitude,
+                    longitude : req.body.location.longitude }]
         });
         eventInfo.save(function(err) {
             if (err){
