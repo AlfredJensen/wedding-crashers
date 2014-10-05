@@ -11,9 +11,9 @@ function getEventById(id, callback) {
 	});
 }
 
-function getEventsByLatAndLong(lat, long, callback) {
-	var url = "/events/search/" + lat + "/" + "long";
-	$.get(url, function(events) {
-		callback(events);
+function getEventsByLatAndLong(lat, lng, callback) {
+	var url = "/events/search/" + lat + "/" + lng;
+	$.get(url, function(data) {
+		callback(data);
 	});
 }

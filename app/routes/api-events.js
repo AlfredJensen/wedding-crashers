@@ -15,7 +15,7 @@ module.exports = function(app) {
         query.findOne(function (err, event) { 
             if (err) {
                 //return handleError(err);
-                res.send("Everything broke, just ignore any success you might think you had");
+                res.send(err);
             }
             if (event) {
                 // doc may be null if no document matched
@@ -27,7 +27,7 @@ module.exports = function(app) {
         Event.find(function (err, event) {
             if (err) {
                 //return handleError(err);
-                res.send("Everything broke, just ignore any success you might think you had");
+                res.send(err);
             }
             if (event) {
                 // doc may be null if no document matched
@@ -53,8 +53,6 @@ module.exports = function(app) {
         });
     })
     app.post('/events/create', function(req, res) {
-        // var locationJSON = req.body.location,
-        //         obj = JSON.parse(locationJSON);
         var eventInfo = new Event({ 
             name : req.body.name,
             description : req.body.description,
@@ -73,8 +71,11 @@ module.exports = function(app) {
         eventInfo.save(function(err) {
             if (err){
                 //handle error
+                res.send(err);
             }
-            res.json({ message:'success', data:eventInfo, console: req.body});
+            else {
+                res.json({ message:'Success', data:eventInfo, console: req.body});
+            }
         });
     });
 }
