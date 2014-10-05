@@ -121,3 +121,52 @@ body, html {
 #map-canvas {
   height: 100%;
 }
+
+/* line 127, ../scss/heyguys.scss */
+.add-event-form {
+  background-color: #EFEFEF;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+/* line 132, ../scss/heyguys.scss */
+.open {
+  background-color: #CDCDCD;
+}
+
+/* line 136, ../scss/heyguys.scss */
+.form-field {
+  margin: 5px 0px;
+}
+/* line 138, ../scss/heyguys.scss */
+.form-field .short-input {
+  border-right: 1px solid #E9E9E9;
+  border-bottom: 1px solid #E9E9E9;
+}
+/* line 143, ../scss/heyguys.scss */
+.form-field input, .form-field textarea {
+  border-bottom: 1px solid #E9E9E9;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 3px;
+}
+/* line 151, ../scss/heyguys.scss */
+.form-field textarea {
+  height: 100px;
+}
+
+/* line 157, ../scss/heyguys.scss */
+.last-form-field {
+  height: 0px;
+}
+
+/* line 161, ../scss/heyguys.scss */
+.submitButton {
+  width: 100%;
+  padding: 7.5px 0px;
+  line-height: 30px;
+  font-size: 22px;
+  border: none;
+  background-color: #DEDEDE;
+}
