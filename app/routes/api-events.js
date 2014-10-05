@@ -10,20 +10,21 @@ module.exports = function(app) {
     app.use(bodyParser.json());
 
 
-    app.get('/events/search/:id', function (req, res) {
-        var query = Event.where({ id: req.param.id });
+    app.get('/events/search/id/:id', function (req, res) {
+        //Select top 1 from Event where Event.id = req.param.id
+        var query = Event.where({ id: req.params.id });
         query.findOne(function (err, event) { 
             if (err) {
                 //return handleError(err);
             }
             if (event) {
                 // doc may be null if no document matched
-                res.send(event);
+                res.send(event); 
             }
         }); 
-    })
+    }) 
     app.get('/events/search/', function (req, res) {
-        query.find(function (err, event) {
+        Event.find(function (err, event) {
             if (err) {
                 //return handleError(err);
             }
@@ -50,6 +51,8 @@ module.exports = function(app) {
         });
     })
     app.post('/events/create', function(req, res) {
+        var locationJSON = req.body.location,
+                obj = JSON.parse(locationJSON);
         var eventInfo = new Event({ 
             name : req.body.name,
             description : req.body.description,
@@ -58,18 +61,18 @@ module.exports = function(app) {
             url : req.body.url,
             host : req.body.host,
             capacity : req.body.capacity,
-            location : [{ street : req.query.street, 
-                    zip : req.query.zip,
-                    city : req.query.city,
-                    state : req.query.state,
-                    latitude : req.query.latitude,
-                    longitude : req.query.longitude }]
+            location : [{ street : obj.street, 
+                    zip : obj.zip,
+                    city : obj.city,
+                    state : obj.state,
+                    latitude : obj.latitude,
+                    longitude : obj.longitude }]
         });
         eventInfo.save(function(err) {
             if (err){
                 //handle error
             }
-            res.json({ message:'success', data:eventInfo});
+            res.json({ message:'success', data:eventInfo, console: req.body});
         });
     });
 }
