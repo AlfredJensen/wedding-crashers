@@ -6,22 +6,30 @@
 body, html {
   margin: 0;
   padding: 0;
+  height: 100vh;
   font-family: Inconsolata;
 }
 
-/* line 12, ../scss/heyguys.scss */
+/* line 13, ../scss/heyguys.scss */
 .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
 }
 
-/* line 24, ../scss/heyguys.scss */
+/* line 21, ../scss/heyguys.scss */
+#wrap {
+  min-height: 100%;
+  height: 100% !important;
+}
+/* line 25, ../scss/heyguys.scss */
 #wrap .sidebar {
   border-left: 1px solid #EFEFEF;
+  min-height: 100vh;
+  height: 100vh;
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 31, ../scss/heyguys.scss */
+/* line 32, ../scss/heyguys.scss */
 #wrap .sidebar .brand {
   padding-left: 20px;
   padding-bottom: 20px;
@@ -38,16 +46,16 @@ body, html {
   /* End Sticky Header */
 }
 
-/* line 52, ../scss/heyguys.scss */
+/* line 53, ../scss/heyguys.scss */
 #event-list {
-  padding-top: 50px;
+  padding-top: 75px;
   height: inherit;
   margin: 0 auto;
   padding-bottom: 50px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
-/* line 61, ../scss/heyguys.scss */
+/* line 62, ../scss/heyguys.scss */
 .add-event {
   /* This is for sticky footer */
   position: fixed;
@@ -60,22 +68,21 @@ body, html {
   padding-left: 30px;
   background-color: #EFEFEF;
 }
-/* line 76, ../scss/heyguys.scss */
+/* line 77, ../scss/heyguys.scss */
 .add-event i {
   line-height: inherit;
   margin-right: 30px;
 }
 
-/* line 82, ../scss/heyguys.scss */
+/* line 83, ../scss/heyguys.scss */
 .add-event:hover {
   background-color: #CDCDCD;
   cursor: pointer;
 }
 
-/* line 87, ../scss/heyguys.scss */
+/* line 88, ../scss/heyguys.scss */
 .event-wrapper {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 /* line 94, ../scss/heyguys.scss */
