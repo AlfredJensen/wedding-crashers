@@ -1,4 +1,5 @@
 function getAllEvents(callback) {
+	dicks
 	$.get("/events/search/", function(data) {
 		callback(data);
 	});

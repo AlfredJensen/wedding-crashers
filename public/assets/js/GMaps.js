@@ -8,11 +8,11 @@ $(function() {
 			var lon = position.coords.longitude;
 			var latlng = new google.maps.LatLng(lat, lon);
 
-			//map = displayMap(canvas, 15, latlng);
-			//marker = addMarker(map, latlng);
+			map = displayMap(canvas, 15, latlng);
+			addMarker(map, latlng);
+
 			getEventsByLatAndLong(lat, lon, function(events) {
 				events.forEach(function(en, index) {
-					console.log(en.location);
 					$('.event-wrapper').append('<div id=content_' + index + ' class=event-content><div id=logistics_' + index + ' class=event-logistics></div></div>')
 					$('#logistics_' + index).append('<p id=name_' + index + ' class=\"event-name\">' + en.name + '</p>')
 					$('#logistics_' + index).append('<div class="event-address"><p>' + en.location[0].street + ', ' + en.location[0].city + ', ' + en.location[0].state + ', ' + en.location[0].zip + '</p></div>')
@@ -20,6 +20,8 @@ $(function() {
 					$('#content_' + index).append('<p class=\"event-time\">' + en.date + '</p>')
 					$('#content_' + index).append('<p class=\"event-price\">' + en.price + '</p>')
 					$('#content_' + index).append('<p class=\"event-distance\">placeholder</p>')
+
+					addMarker(map, new google.maps.LatLng(en.location[0].latitude, en.location[0].longitude));
 				});
 			});
 		});
@@ -38,25 +40,7 @@ function addMarker(map, position) {
 	var marker = new google.maps.Marker({
 		position: position,
 		map: map,
-		title: 'TESTING'
 	});
-
-	google.maps.event.addListener(marker, 'click', function() { console.log("Clicked") });
-
-	// var infowindow =  new google.maps.InfoWindow({
-	// 	content: 'Hello World!',
-	// 	map: map
-	// });
-
-	// google.maps.event.addListener(marker, 'mouseover', function() {
-	// 	infowindow.open(map, this);
-	// });
-
-	// google.maps.event.addListener(marker, 'mouseout', function() {
-	// 	infowindow.close();
-	// });
-
-	return marker;
 }
 
 function lookupLocation(location, callback) {
