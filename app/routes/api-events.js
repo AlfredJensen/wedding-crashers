@@ -41,11 +41,11 @@ module.exports = function(app) {
         //                            Events.location.latitude >= req.params.lat - .035   and
         //                            Events.location.longitude <= req.params.long + .035 and
         //                            Events.location.longitude >= req.params.long - .035
-        var query = Event.where('location.latitude').lte(req.param.lat + .035).gte(req.param.lat - .035).where('location.longitude').lte(req.param.longitude + .035).gte(req.param.longitude - .035);
+        var query = Event.where('location.latitude').lte(req.params.lat + .035).gte(req.params.lat - .035).where('location.longitude').lte(req.params.longitude + .035).gte(req.params.longitude - .035);
         query.find(function (err, event) {
             if (err) {
                 //return handleError(err);
-                res.send("Everything broke, just ignore any success you might think you had");
+                res.send(err);
             }
             if (event) {
                 // doc may be null if no document matched
