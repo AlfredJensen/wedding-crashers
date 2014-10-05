@@ -29,18 +29,18 @@ function addMarker(map, position) {
 
 	google.maps.event.addListener(marker, 'click', function() { console.log("Clicked") });
 
-	var infowindow =  new google.maps.InfoWindow({
-		content: 'Hello World!',
-		map: map
-	});
+	// var infowindow =  new google.maps.InfoWindow({
+	// 	content: 'Hello World!',
+	// 	map: map
+	// });
 
-	google.maps.event.addListener(marker, 'mouseover', function() {
-		infowindow.open(map, this);
-	});
+	// google.maps.event.addListener(marker, 'mouseover', function() {
+	// 	infowindow.open(map, this);
+	// });
 
-	google.maps.event.addListener(marker, 'mouseout', function() {
-		infowindow.close();
-	});
+	// google.maps.event.addListener(marker, 'mouseout', function() {
+	// 	infowindow.close();
+	// });
 
 	return marker;
 }
