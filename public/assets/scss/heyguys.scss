@@ -29,8 +29,10 @@ $event-wrapper-padding: 20px;
 		h1 {
 			padding-left: $event-wrapper-padding;
 			padding-bottom: $event-wrapper-padding;
-			border-bottom: 1px solid #000;
+			padding-top: $event-wrapper-padding;
+			background-color: #EFEFEF;
 			margin-bottom: 0px;
+			margin-top: 0px;
 		}
 	}
 }
@@ -41,17 +43,30 @@ $add-event-height: 50px;
 	margin: 0 0 $add-event-height;
 }
 
-.add-event-button {
-	background-color: #ADD8E6;
-	
+.add-event {
 	/* This is for sticky footer */
-	// position: absolute;
-	// left: 0;
-	// bottom: 0;
-	// height: $add-event-height;
-	// width: 100%;
-
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: $add-event-height;
+	width: 100%;
 	/* End Sticky Footer */
+
+	font-size: 25px;
+	
+	line-height: $add-event-height;
+	padding-left: 30px;
+
+	background-color: #EFEFEF;
+	i {
+		line-height: inherit;
+		margin-right: 30px;
+	}
+}
+
+.add-event:hover {
+	background-color: #CDCDCD;
+	cursor: pointer;
 }
 
 .event-wrapper {
