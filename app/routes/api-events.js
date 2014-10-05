@@ -10,12 +10,13 @@ module.exports = function(app) {
     app.use(bodyParser.json());
 
 
-    app.get('/events/search/id/:id', function (req, res) {
+    app.get('/events/search/:id', function (req, res) {
         //Select top 1 from Event where Event.id = req.param.id
-        var query = Event.where({ id: req.params.id });
+        var query = Event.where({ _id : req.params.id });
         query.findOne(function (err, event) { 
             if (err) {
                 //return handleError(err);
+                res.send("Everything broke, just ignore any success you might think you had");
             }
             if (event) {
                 // doc may be null if no document matched
@@ -27,6 +28,7 @@ module.exports = function(app) {
         Event.find(function (err, event) {
             if (err) {
                 //return handleError(err);
+                res.send("Everything broke, just ignore any success you might think you had");
             }
             if (event) {
                 // doc may be null if no document matched
@@ -39,10 +41,11 @@ module.exports = function(app) {
         //                            Events.location.latitude >= req.params.lat - .035   and
         //                            Events.location.longitude <= req.params.long + .035 and
         //                            Events.location.longitude >= req.params.long - .035
-        var query = Event.where(location.latitude).lte(req.param.lat + .035).gte(req.param.lat - .035).where(location.longitude).lte(req.param.longitude + .035).gte(req.param.longitude - .035);
+        var query = Event.where('location.latitude').lte(req.param.lat + .035).gte(req.param.lat - .035).where('location.longitude').lte(req.param.longitude + .035).gte(req.param.longitude - .035);
         query.find(function (err, event) {
             if (err) {
                 //return handleError(err);
+                res.send("Everything broke, just ignore any success you might think you had");
             }
             if (event) {
                 // doc may be null if no document matched
